@@ -8,40 +8,96 @@
     <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="css"
+      rel="stylesheet"
     />
   </head>
 
   <body>
     <div class="wrapper">
       <span class="bg-animate"></span>
+      <span class="bg-animate2"></span>
       <div class="form-box login">
-        <h2>Login</h2>
-        <div class="input-box">
+        <h2 class="animation" style="--i: 0; --j: 21">Login</h2>
+        <div class="input-box animation" style="--i: 1; --j: 22">
           <input id="usuario" type="text" required />
           <label>Nombre de usuario</label>
           <i class="bx bxs-user"></i>
         </div>
-        <div class="input-box">
+        <div class="input-box animation" style="--i: 2; --j: 23">
           <input id="contraseña" type="password" required />
           <label>Contraseña</label>
           <i class="bx bxs-lock-alt"></i>
         </div>
-        <button class="btn" id="inicio">Iniciar sesión</button>
-        <div class="logreg-link">
+        <button class="btn animation" id="inicio" style="--i: 3; --j: 24">
+          Iniciar sesión
+        </button>
+        <button class="btn2 animation" id="google" style="--i: 3; --j: 24">
+          Iniciar con Google
+          <i class="bx bxl-google"></i>
+        </button>
+        <div class="logreg-link animation" style="--i: 4; --j: 25">
           <p>
-            ¿No tiene cuenta? <a href="#" class="registrer-link">Inscribirse</a>
+            ¿No tiene cuenta?
+            <a href="#" class="registrer-link">Inscribirse</a>
           </p>
         </div>
       </div>
       <div class="info-text login">
-        <h2>Bienvenido</h2>
-        <p>
+        <h2 class="animation" style="--i: 0; --j: 20">Bienvenido</h2>
+        <p class="animation" style="--i: 1; --j: 21">
           Este es su menú de inicio de sesión, por favor llene los campos
           solicitados.
         </p>
       </div>
+
+      <div class="form-box register">
+        <h2 class="animation" style="--i: 17; --j: 0">Sign Up</h2>
+        <div class="input-box animation" style="--i: 18; --j: 1">
+          <input id="usuarioR" type="text" required />
+          <label>Nombre de usuario</label>
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box animation" style="--i: 19; --j: 2">
+          <input id="usuarioCo" type="text" required />
+          <label>Confirmar usuario</label>
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box animation" style="--i: 20; --j: 3">
+          <input id="contraseñaR" type="password" required />
+          <label>Contraseña</label>
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <div class="input-box animation" style="--i: 21; --j: 3">
+          <input id="contraseñaCo" type="password" required />
+          <label>Confirmar contraseña</label>
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <button
+          type="submit"
+          class="btn animation"
+          id="registrarR"
+          style="--i: 21; --j: 4"
+        >
+          Registrarse
+        </button>
+        <div class="logreg-link animation" style="--i: 22; --j: 5">
+          <p>
+            Ya posee una cuenta?
+            <a href="#" class="login-link">Login</a>
+          </p>
+        </div>
+      </div>
+      <div class="info-text register">
+        <h2 class="animation" style="--i: 17; --j: 0">Bienvenido</h2>
+        <p class="animation" style="--i: 18; --j: 1">
+          A continuacion llene los campos solicitados para el registro de
+          usuario
+        </p>
+      </div>
     </div>
     <script type="module" src="controllers/authentication.js"></script>
+    <script type="module" src="controllers/script.js"></script>
+    <script type="module" src="controllers/register_user.js"></script>
+    <script type="module" src="controllers/loginGoogle.js"></script>
   </body>
 </html>

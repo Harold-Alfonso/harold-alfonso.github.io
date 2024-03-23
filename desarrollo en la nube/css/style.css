@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #081b29;
+  background: #292836;
 }
 
 .wrapper {
@@ -38,6 +38,46 @@ body {
 .wrapper .form-box.login {
   left: 0;
   padding: 0 60px 0 40px;
+}
+
+.wrapper .form-box.login .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition: 0.7s ease;
+  transition-delay: calc(0.05s * var(--j));
+}
+
+.wrapper.active .form-box.login .animation {
+  transform: translateX(-120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition-delay: calc(0.05s * var(--i));
+}
+
+.wrapper .form-box.register {
+  right: 0;
+  padding: 0 40px 0 60px;
+  pointer-events: none;
+}
+
+.wrapper.active .form-box.register {
+  pointer-events: auto;
+}
+
+.wrapper .form-box.register .animation {
+  transform: translateX(120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition: 0.7s ease;
+  transition-delay: calc(0.05s * var(--j));
+}
+
+.wrapper.active .form-box.register .animation {
+  transform: translateX(0%);
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: calc(0.05s * var(--i));
 }
 
 .form-box h2 {
@@ -127,13 +167,46 @@ body {
   left: 0;
   width: 100%;
   height: 300%;
-  background: linear-gradient(#081b29, #0ef, #081b29, #0ef);
+  background: linear-gradient(#4b4b4b, #0ef, #081b29, #0ef);
   z-index: -1;
   transition: 0.5s;
 }
 
 .btn:hover::before {
-  top: 0;
+  top: 0px;
+}
+
+.btn2 {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  border: 2px solid #0ef;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  z-index: 1;
+  overflow: hidden;
+  top: 2%;
+}
+
+.btn2::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 300%;
+  background: linear-gradient(#292836, #52a08d, #292836, #52a08d);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.btn2:hover::before {
+  top: 0px;
 }
 
 .form-box .logreg-link {
@@ -166,7 +239,48 @@ body {
 .wrapper .info-text.login {
   right: 0;
   text-align: right;
-  padding: 0 40px 60px 140px;
+  padding: 0 20px 60px 140px;
+}
+
+.wrapper .info-text.login .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition: 0.7s ease;
+  transition-delay: calc(0.05s * var(--j));
+}
+
+.wrapper.active .info-text.login .animation {
+  transform: translateX(140%);
+  opacity: 0;
+  filter: blur(10px);
+  transition-delay: calc(0.05s * var(--i));
+}
+
+.wrapper .info-text.register {
+  left: 0;
+  text-align: left;
+  padding: 0 140px 60px 40px;
+  pointer-events: none;
+}
+
+.wrapper.active .info-text.register {
+  pointer-events: auto;
+}
+
+.wrapper .info-text.register .animation {
+  transform: translateX(-140%);
+  opacity: 0;
+  filter: blur(10px);
+  transition: 0.7s ease;
+  transition-delay: calc(0.05s * var(--j));
+}
+
+.wrapper.active .info-text.register .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: calc(0.05s * var(--i));
 }
 
 .info-text h2 {
@@ -183,12 +297,38 @@ body {
 
 .wrapper .bg-animate {
   position: absolute;
-  top: 0;
+  top: -4px;
   right: 0;
   width: 850px;
   height: 600px;
-  background: linear-gradient(45deg, #081b29, #0ef);
+  background: linear-gradient(45deg, #292836, rgb(82, 160, 141));
   border-bottom: 3px solid #0ef;
   transform: rotate(10deg) skewY(40deg);
   transform-origin: bottom right;
+  transition: 0.5s ease;
+  transition-delay: 0.8s;
+}
+
+.wrapper.active .bg-animate {
+  transform: rotate(0) skewY(0);
+  transition-delay: 0.03s;
+}
+
+.wrapper .bg-animate2 {
+  position: absolute;
+  top: 100%;
+  left: 250px;
+  width: 850px;
+  height: 700px;
+  background: #292836;
+  border-top: 3px solid #0ef;
+  transform: rotate(0) skewY(0);
+  transform-origin: bottom left;
+  transition: 0.5s ease;
+  transition-delay: 0.08s;
+}
+
+.wrapper.active .bg-animate2 {
+  transform: rotate(-11deg) skewY(-41deg);
+  transition-delay: 0.3s;
 }

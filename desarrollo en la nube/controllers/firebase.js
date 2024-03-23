@@ -5,6 +5,10 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,6 +28,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
+const provider = new GoogleAuthProvider()
 
 // autenticacion usuario
 export const loginauth = (email, password) =>
@@ -45,3 +50,13 @@ export function userstate() {
     }
   })
 }
+//crar nuevo usuario
+export const registerAuth = (email, password) =>
+  createUserWithEmailAndPassword(auth, email, password)
+
+//inicio con Google
+export const loginGoogle = () => signInWithPopup(auth, provider)
+
+//mensaje de confirmacion
+
+export const mensajeA = () => sendEmailVerification(auth.currentUser)
