@@ -1,6 +1,7 @@
 import { registerAuth, mensajeA } from '../controllers/firebase.js'
 
 const specialCharacters = /[!@#$%^&*(),.?":{}|<>]/
+const uppercaseLetter = /[A-Z]/
 const registrar = document.getElementById('registrarR')
 
 async function registro() {
@@ -14,6 +15,9 @@ async function registro() {
     return
   } else if (!specialCharacters.test(password)) {
     alert('La contraseña debe contener al menos un caracter especial')
+    return
+  } else if (!uppercaseLetter.test(password)) {
+    alert('La contraseña debe contener al menos una letra mayúscula')
     return
   } else if (email != Cemail) {
     alert('El usuario y la confirmación de usuario no coinciden')
