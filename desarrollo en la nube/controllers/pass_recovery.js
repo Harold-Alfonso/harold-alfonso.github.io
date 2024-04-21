@@ -1,6 +1,7 @@
 import { cambiar } from '../controllers/firebase.js'
 
 const recover = document.getElementById('recort')
+const vol = document.getElementById('volver')
 
 async function resetear() {
   const email = document.getElementById('verCorr').value
@@ -10,7 +11,7 @@ async function resetear() {
 
     .then(() => {
       alert('resert password seccesfull' + email)
-      window.location.href = '../templates/index.html'
+      window.location.href = '../copyform.html'
     })
     .catch((error) => {
       const errorCode = error.code
@@ -18,7 +19,14 @@ async function resetear() {
       // ..
     })
 }
+async function volver() {
+  window.location.href = '../copyform.html'
+}
 
 window.addEventListener('DOMContentLoaded', async () => {
   recover.addEventListener('click', resetear)
+})
+
+window.addEventListener('DOMContentLoaded', async () => {
+  vol.addEventListener('click', volver)
 })
