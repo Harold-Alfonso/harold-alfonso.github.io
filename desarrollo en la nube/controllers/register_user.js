@@ -37,7 +37,7 @@ async function registro() {
               error
             )
           })
-        window.location.href = '../index.html'
+        window.location.href = '../copyform.html'
       })
       .catch((error) => {
         const errorCode = error.code

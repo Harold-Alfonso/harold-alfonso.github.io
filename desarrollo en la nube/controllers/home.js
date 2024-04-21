@@ -1,8 +1,9 @@
-import { userstate, loginout } from '../controllers/firebase.js'
+import { userstate, loginout, Deletuser } from '../controllers/firebase.js'
 
 userstate()
 
-const sesion = document.getElementById('btnlogout')
+const sesion = document.getElementById('cerrarcesion')
+const Delete = document.getElementById('btnDeleteUser')
 
 async function cerrarsesion() {
   const verificacion = loginout()
@@ -10,12 +11,31 @@ async function cerrarsesion() {
 
     .then((comprobar) => {
       alert('sesion cerrada')
-      window.location.href = '../index.html'
+      window.location.href = '../copyform.html'
     })
     .catch((error) => {
       alert('Sesion no cerrada')
     })
 }
+
+async function EliminarUser() {
+  const verificacion = Deletuser()
+  const comprobar = await verificacion
+
+    .then((comprobar) => {
+      alert('Usuario elimiando')
+
+      window.location.href = '../copyform.html'
+    })
+    .catch((error) => {
+      alert('Usuario no eliminado')
+    })
+}
+
 window.addEventListener('DOMContentLoaded', async () => {
   sesion.addEventListener('click', cerrarsesion)
+})
+
+window.addEventListener('DOMContentLoaded', async () => {
+  Delete.addEventListener('click', EliminarUser)
 })
