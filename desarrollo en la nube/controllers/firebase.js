@@ -50,7 +50,7 @@ export function userstate() {
       const uid = user.uid
       console.log(uid)
     } else {
-      window.location.href = '../copyform.html'
+      window.location.href = '../index.html'
     }
   })
 }

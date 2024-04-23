@@ -11,7 +11,7 @@ async function resetear() {
 
     .then(() => {
       alert('resert password seccesfull' + email)
-      window.location.href = '../copyform.html'
+      window.location.href = '../index.html'
     })
     .catch((error) => {
       const errorCode = error.code
@@ -20,7 +20,7 @@ async function resetear() {
     })
 }
 async function volver() {
-  window.location.href = '../copyform.html'
+  window.location.href = '../index.html'
 }
 
 window.addEventListener('DOMContentLoaded', async () => {

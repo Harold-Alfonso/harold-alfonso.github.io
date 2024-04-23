@@ -11,7 +11,7 @@ async function cerrarsesion() {
 
     .then((comprobar) => {
       alert('sesion cerrada')
-      window.location.href = '../copyform.html'
+      window.location.href = '../index.html'
     })
     .catch((error) => {
       alert('Sesion no cerrada')
@@ -25,7 +25,7 @@ async function EliminarUser() {
     .then((comprobar) => {
       alert('Usuario elimiando')
 
-      window.location.href = '../copyform.html'
+      window.location.href = '../index.html'
     })
     .catch((error) => {
       alert('Usuario no eliminado')

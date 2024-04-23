@@ -8,11 +8,10 @@ const facebook = document.getElementById('facebook')
 
 async function logFacebook() {
   try {
-    await loginFacebook(providerFacebook) 
+    await loginFacebook(providerFacebook)
     await userstate()
     window.location.href = '../templates/home.html'
-  } catch (error) {
-  }
+  } catch (error) {}
 }
 
 window.addEventListener('DOMContentLoaded', () => {
