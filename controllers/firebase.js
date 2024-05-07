@@ -76,7 +76,7 @@ export const cambiar = (email) => sendPasswordResetEmail(auth, email)
 
 //inicio sesion con Facebook
 
-export const loginFacebook = () => signInWithPopup(auth, providerFabook)
+export const loginFacebook = () => signInWithPopup(auth, providerFacebook)
 export const providerFacebook = new FacebookAuthProvider()
 
 //eliminar usuario
