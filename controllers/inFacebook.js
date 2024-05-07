@@ -11,7 +11,9 @@ async function logFacebook() {
     await loginFacebook(providerFacebook)
     await userstate()
     window.location.href = '../templates/home.html'
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
