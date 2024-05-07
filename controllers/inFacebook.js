@@ -7,7 +7,7 @@ async function logFacebook() {
     await loginFacebook(providerFacebook)
     window.location.href = '../templates/home.html'
   } catch (error) {
-    console.log(error)
+    console.error("Error al iniciar sesión con Facebook:", error)
   }
 }
 
