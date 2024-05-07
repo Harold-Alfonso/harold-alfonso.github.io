@@ -1,10 +1,19 @@
-import { registerAuth, mensajeA } from '../controllers/firebase.js'
+import {
+  registerAuth,
+  mensajeA,
+  CrearUsuario,
+} from '../controllers/firebase.js'
 
 const specialCharacters = /[!@#$%^&*(),.?":{}|<>]/
 const uppercaseLetter = /[A-Z]/
 const registrar = document.getElementById('registrarR')
 
 async function registro() {
+  const id = document.getElementById('IdentR').value
+  const us = document.getElementById('Nom_usuarioR').value
+  const dir = document.getElementById('DireccionR').value
+  const tel = document.getElementById('telefono').value
+  const RH = document.getElementById('RHR').value
   const email = document.getElementById('usuarioR').value
   const Cemail = document.getElementById('usuarioCo').value
   const password = document.getElementById('contraseñaR').value
@@ -26,28 +35,35 @@ async function registro() {
     alert('La contraseña y la confirmación de contraseña no coinciden')
     return
   } else {
-    const validar = registerAuth(email, password)
-    const verificar = await validar
-      .then((verificar) => {
-        alert('Usuario registrado exitosamente')
+    const validar = async () => {
+      try {
+        await registerAuth(email, password)
+      } catch (error) {
+        throw error
+      }
+    }
+    const datos = async () => {
+      try {
+        return await CrearUsuario(id, us, RH, dir, tel)
+      } catch (error) {
+        throw error
+      }
+    }
 
-        mensajeA()
-          .then(() => {
-            console.log('Correo electrónico de verificación enviado con éxito')
-          })
-          .catch((error) => {
-            console.error(
-              'Error al enviar correo electrónico de verificación:',
-              error
-            )
-          })
+    try {
+      await validar()
+      const docRef = await datos()
+      if (docRef.id) {
+        alert('Usuario registrado exitosamente')
+        await mensajeA()
+        console.log('Correo electrónico de verificación enviado con éxito')
         window.location.href = '../index.html'
-      })
-      .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.message
-        alert(errorMessage)
-      })
+      } else {
+        alert('Error al registrar usuario')
+      }
+    } catch (error) {
+      console.error(error)
+    }
   }
 }
 

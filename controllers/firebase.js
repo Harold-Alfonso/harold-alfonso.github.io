@@ -13,8 +13,12 @@ import {
   FacebookAuthProvider,
   deleteUser,
 } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+} from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js'
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -33,6 +37,7 @@ const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 const providerGoogle = new GoogleAuthProvider()
 const providerFabook = new FacebookAuthProvider()
+const db = getFirestore(app)
 
 // autenticacion usuario
 export const loginauth = (email, password) =>
@@ -91,4 +96,38 @@ export function Deletuser() {
       reject(new Error('No hay usuario autenticado'))
     }
   })
+}
+
+//Metodos de fireStore
+
+//Agregar datos
+export const CrearDatos = (codigo, nombre, descripcion, cantidad) => {
+  addDoc(collection(db, 'users'), {
+    codigo,
+    nombre,
+    descripcion,
+    cantidad,
+  })
+}
+
+//Agregar datos de usuario
+export const CrearUsuario = async (
+  identificacion,
+  nombre,
+  RH,
+  direccion,
+  telefono
+) => {
+  try {
+    const docRef = await addDoc(collection(db, 'usuario'), {
+      identificacion,
+      nombre,
+      RH,
+      direccion,
+      telefono,
+    })
+    return docRef
+  } catch (error) {
+    throw error
+  }
 }

@@ -17,8 +17,8 @@ body {
 
 .wrapper {
   position: relative;
-  width: 750px;
-  height: 450px;
+  width: 90%;
+  height: 800px;
   background: transparent;
   border: 2px solid #0ef;
   overflow: hidden;
@@ -28,7 +28,7 @@ body {
 .wrapper .form-box {
   position: absolute;
   top: 0;
-  width: 50%;
+  width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ body {
 }
 
 .wrapper .form-box.register {
-  right: 0;
+  right: 20px;
   padding: 0 40px 0 60px;
   pointer-events: none;
 }
@@ -349,8 +349,8 @@ body {
   position: absolute;
   top: -4px;
   right: 0;
-  width: 850px;
-  height: 600px;
+  width: 1750px;
+  height: 1300px;
   background: linear-gradient(45deg, #292836, rgb(82, 160, 141));
   border-bottom: 3px solid #0ef;
   transform: rotate(10deg) skewY(40deg);
@@ -367,9 +367,9 @@ body {
 .wrapper .bg-animate2 {
   position: absolute;
   top: 100%;
-  left: 250px;
-  width: 850px;
-  height: 700px;
+  left: 500px;
+  width: 1750px;
+  height: 1500px;
   background: #292836;
   border-top: 3px solid #0ef;
   transform: rotate(0) skewY(0);
