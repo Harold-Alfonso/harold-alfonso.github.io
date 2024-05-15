@@ -16,7 +16,7 @@ async function logGoogle() {
           error
         )
       })
-    window.location.href = '../templates/home.html'
+    window.location.href = '../templates/us.html'
   } catch (error) {
     console.error('Error al iniciar sesión con Google:', error)
     alert('Error al iniciar sesión con Google. Inténtelo de nuevo.')

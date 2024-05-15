@@ -5,9 +5,9 @@ const facebook = document.getElementById('facebook')
 async function logFacebook() {
   try {
     await loginFacebook(providerFacebook)
-    window.location.href = '../templates/home.html'
+    window.location.href = '../templates/us.html'
   } catch (error) {
-    console.error("Error al iniciar sesión con Facebook:", error)
+    console.log(error)
   }
 }
 

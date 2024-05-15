@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #333333;
+        color: #ffffff;
+      }
+      p {
+        text-align: center;
+        color: #333333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h2 class="mt-5 text-center">Registrar nuevo usuario</h2>
+          <form action="#">
+            <div class="form-group">
+              <input id="IdentRDS" type="text" class="form-control" required />
+              <label for="IdentRDS">N-Identificacion</label>
+            </div>
+            <div class="form-group">
+              <input
+                id="Nom_usuarioRDS"
+                type="text"
+                class="form-control"
+                required
+              />
+              <label for="Nom_usuarioR">Nombre completo</label>
+            </div>
+            <div class="form-group">
+              <input id="RHRDS" type="text" class="form-control" required />
+              <label for="RHRDS">Fecha de Nacimiento</label>
+            </div>
+            <div class="form-group">
+              <input
+                id="DireccionRDS"
+                type="text"
+                class="form-control"
+                required
+              />
+              <label for="DireccionRDS">Direccion</label>
+            </div>
+            <div class="form-group">
+              <input
+                id="telefonoDS"
+                type="text"
+                class="form-control"
+                required
+              />
+              <label for="telefonoDS">N°Telefonico</label>
+            </div>
+
+            <div class="container mt-3">
+              <label for="sel1" class="form-label">Selecciones su rol:</label>
+              <select class="form-select" id="RolDS" name="sellist1">
+                <option>Adminitrador</option>
+                <option>Usuario</option>
+              </select>
+              <br />
+            </div>
+            <div class="form-group">
+              <input
+                id="usuarioRDS"
+                type="text"
+                class="form-control"
+                required
+              />
+              <label for="usuarioRDS">Email de usuario</label>
+            </div>
+            <div class="form-group">
+              <input
+                id="usuarioCoDS"
+                type="text"
+                class="form-control"
+                required
+              />
+              <label for="usuarioCoDS">Confirmar Email</label>
+            </div>
+            <div class="form-group">
+              <input
+                id="contraseñaRDS"
+                type="password"
+                class="form-control"
+                required
+              />
+              <label for="contraseñaRDS">Contraseña</label>
+            </div>
+            <div class="form-group">
+              <input
+                id="contraseñaCoDS"
+                type="password"
+                class="form-control"
+                required
+              />
+              <label for="contraseñaCoDS">Confirmar contraseña</label>
+            </div>
+            <button type="submit" id="Sregis" class="btn btn-primary btn-block">
+              Registrarse
+            </button>
+            <button
+              id="volverA"
+              type="submit"
+              class="btn btn-primary btn-block"
+            >
+              Volver
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="../controllers/RegisAd.js"></script>
+  </body>
+</html>

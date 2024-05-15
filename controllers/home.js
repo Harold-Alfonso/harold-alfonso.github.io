@@ -4,6 +4,7 @@ userstate()
 
 const sesion = document.getElementById('cerrarcesion')
 const Delete = document.getElementById('btnDeleteUser')
+const create = document.getElementById('btnNew')
 
 async function cerrarsesion() {
   const verificacion = loginout()
@@ -32,10 +33,18 @@ async function EliminarUser() {
     })
 }
 
+async function CrearUs() {
+  window.location.href = '../templates/RegisAd.html'
+}
+
 window.addEventListener('DOMContentLoaded', async () => {
   sesion.addEventListener('click', cerrarsesion)
 })
 
 window.addEventListener('DOMContentLoaded', async () => {
   Delete.addEventListener('click', EliminarUser)
+})
+
+window.addEventListener('DOMContentLoaded', async () => {
+  create.addEventListener('click', CrearUs)
 })

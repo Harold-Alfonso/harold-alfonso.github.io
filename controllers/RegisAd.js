@@ -6,19 +6,20 @@ import {
 
 const specialCharacters = /[!@#$%^&*(),.?":{}|<>]/
 const uppercaseLetter = /[A-Z]/
-const registrar = document.getElementById('registrarR')
+const registrar = document.getElementById('Sregis')
+const voli = document.getElementById('volverA')
 
 async function registro() {
-  const id = document.getElementById('IdentR').value
-  const us = document.getElementById('Nom_usuarioR').value
-  const dir = document.getElementById('DireccionR').value
-  const tel = document.getElementById('telefono').value
-  const RH = document.getElementById('RHR').value
-  const Rol = document.getElementById('Rol').value
-  const email = document.getElementById('usuarioR').value
-  const Cemail = document.getElementById('usuarioCo').value
-  const password = document.getElementById('contraseñaR').value
-  const Cpassword = document.getElementById('contraseñaCo').value
+  const id = document.getElementById('IdentRDS').value
+  const us = document.getElementById('Nom_usuarioRDS').value
+  const dir = document.getElementById('DireccionRDS').value
+  const tel = document.getElementById('telefonoDS').value
+  const RH = document.getElementById('RHRDS').value
+  const Rol = document.getElementById('RolDS').value
+  const email = document.getElementById('usuarioRDS').value
+  const Cemail = document.getElementById('usuarioCoDS').value
+  const password = document.getElementById('contraseñaRDS').value
+  const Cpassword = document.getElementById('contraseñaCoDS').value
 
   if (password.length < 8) {
     alert('La contraseña debe tener al menos 8 caracteres')
@@ -45,7 +46,7 @@ async function registro() {
     }
     const datos = async () => {
       try {
-        return await CrearUsuario(id, us, RH, dir, tel, Cemail, Cpassword, Rol)
+        return await CrearUsuario(id, us, RH, dir, tel, Cemail, Rol)
       } catch (error) {
         throw error
       }
@@ -58,7 +59,7 @@ async function registro() {
         alert('Usuario registrado exitosamente')
         await mensajeA()
         console.log('Correo electrónico de verificación enviado con éxito')
-        window.location.href = '../index.html'
+        window.location.href = '../templates/home.html'
       } else {
         alert('Error al registrar usuario')
       }
@@ -67,7 +68,14 @@ async function registro() {
     }
   }
 }
+async function volver() {
+  window.location.href = '../templates/home.html'
+}
 
 window.addEventListener('DOMContentLoaded', () => {
   registrar.addEventListener('click', registro)
+})
+
+window.addEventListener('DOMContentLoaded', async () => {
+  voli.addEventListener('click', volver)
 })

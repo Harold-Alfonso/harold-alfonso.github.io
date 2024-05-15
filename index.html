@@ -98,6 +98,20 @@
             <i class="bx bxs-phone"></i>
           </div>
           <div class="input-box animation" style="--i: 18; --j: 1">
+            <label for="sel1" class="form-label">Selecciones su rol:</label>
+          </div>
+
+          <div
+            class="container mt-3 input-box animation"
+            style="--i: 18; --j: 1"
+          >
+            <select class="form-select" id="Rol" name="sellist1">
+              <option>Adminitrador</option>
+              <option>Usuario</option>
+            </select>
+            <br />
+          </div>
+          <div class="input-box animation" style="--i: 18; --j: 1">
             <input id="usuarioR" type="text" required />
             <label>Email de usuario</label>
             <i class="bx bx-envelope"></i>
@@ -142,7 +156,7 @@
         </p>
       </div>
     </div>
-    <script type="module" src="controllers/conform.js"></script>
+    <script type="module" src="controllers/authentication.js"></script>
     <script type="module" src="controllers/script.js"></script>
     <script type="module" src="controllers/register_user.js"></script>
     <script type="module" src="controllers/loginGoogle.js"></script>

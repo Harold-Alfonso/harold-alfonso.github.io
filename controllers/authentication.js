@@ -1,23 +1,46 @@
-import { loginauth } from '../controllers/firebase.js'
+import { loginauth, q } from '../controllers/firebase.js'
 
-const recibir = document.getElementById('inicio')
+const caja = document.getElementById('formreg')
+const boton = caja['inicio']
 
 async function validar() {
-  const email = document.getElementById('usuario').value
-  const password = document.getElementById('contraseña').value
+  const email = caja['usuario'].value
+  const password = caja['contraseña'].value
 
   const verificar = loginauth(email, password)
   const validation = await verificar
 
   if (validation != null) {
-    alert('user authentication seccesfull' + email)
-    window.location.href = '../templates/home.html'
+    try {
+      const querySnapshot = await q(email)
+      if (!querySnapshot.empty) {
+        querySnapshot.forEach((doc) => {
+          const userData = doc.data()
+          if (userData.rol == 'Usuario') {
+            alert('¡Bienvenido usuario!')
+            window.location.href = '../templates/us.html'
+          } else if (userData.rol == 'Adminitrador') {
+            alert('¡Bienvenido administrador!')
+            window.location.href = '../templates/home.html'
+          } else {
+            alert('Error: El usuario no tiene un rol válido')
+          }
+        })
+      } else {
+        console.log('No se encontró ningún usuario con ese email')
+        alert('Error: No se encontró ningún usuario con ese email')
+      }
+    } catch (error) {
+      console.log('Error al buscar usuario en Firestore:', error)
+      alert('Error al buscar usuario en Firestore')
+    }
   } else {
-    console.log('Sesion ' + email + 'not validation')
-    alert('Error de usuario verifique usuario y/o contraseña')
+    console.log('Sesion ' + email + ' not validation')
+    alert('Error de usuario: Verifique usuario y/o contraseña')
   }
 }
 
-window.addEventListener('DOMContentLoaded', async () => {
-  recibir.addEventListener('click', validar)
+boton.addEventListener('click', (e) => {
+  e.preventDefault()
+  validar()
 })
