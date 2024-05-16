@@ -56,9 +56,9 @@ export const loginout = () => signOut(auth)
 // estado del usuario
 export function userstate() {
   onAuthStateChanged(auth, (user) => {
+    const uid = user.uid
+    console.log(uid)
     if (user) {
-      const uid = user.uid
-      console.log(uid)
     } else {
       window.location.href = '../index.html'
     }

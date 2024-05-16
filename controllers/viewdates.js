@@ -35,16 +35,15 @@ async function cargar() {
       </tr>
     `
   })
+
   // Agregar event listener a todos los botones de eliminar usuario
   document.querySelectorAll('.btnDeleteUser').forEach((button) => {
     button.addEventListener('click', async () => {
       const userEmail = button.getAttribute('data-user-email')
-
       const userId = button.getAttribute('data-user-id')
       const userDocRef = doc(Db, 'usuario', userId)
       const userDocSnapshot = await getDoc(userDocRef)
       const userData = userDocSnapshot.data()
-
       const userPassword = userData.contra
 
       if (userPassword) {
@@ -53,7 +52,7 @@ async function cargar() {
             await eliminarDocumento('usuario', userId)
             await eliminarCuenta(userEmail, userPassword)
             alert('Usuario eliminado exitosamente')
-            window.location.reload()
+            cargar()
           } catch (error) {
             alert('Error al eliminar usuario')
             console.error('Error al eliminar usuario:', error)

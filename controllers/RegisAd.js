@@ -46,7 +46,7 @@ async function registro() {
     }
     const datos = async () => {
       try {
-        return await CrearUsuario(id, us, RH, dir, tel, Cemail, Rol)
+        return await CrearUsuario(id, us, RH, dir, tel, Cemail, Cpassword, Rol)
       } catch (error) {
         throw error
       }
