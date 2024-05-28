@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #333333;
+        color: #ffffff;
+      }
+      p {
+        text-align: center;
+        color: #333333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h2 class="mt-5 text-center">Registrar nuevo usuario</h2>
+          <form action="#">
+            <div class="form-group">
+              <input id="Cod" type="text" class="form-control" required />
+              <label for="Cod">codigo</label>
+            </div>
+            <div class="form-group">
+              <input id="Nom" type="text" class="form-control" required />
+              <label for="Nom">Nombre</label>
+            </div>
+            <div class="form-group">
+              <input id="Pais" type="text" class="form-control" required />
+              <label for="Pais">Pais</label>
+            </div>
+            <button type="submit" id="Sreg" class="btn btn-primary btn-block">
+              Registrarse
+            </button>
+            <button id="vol" type="submit" class="btn btn-primary btn-block">
+              Volver
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="../controllers/registercities.js"></script>
+  </body>
+</html>

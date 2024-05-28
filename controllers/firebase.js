@@ -1,5 +1,4 @@
 // Importa las funciones necesarias de Firebase
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js'
 import {
   getAuth,
@@ -25,10 +24,11 @@ import {
   deleteDoc,
   doc as firestoreDoc,
   getDoc as firestoreGetDoc,
+  setDoc,
+  updateDoc,
 } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js'
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyBcECYGbM2v2MAnwMk8DVNR9wi5eghCxhU',
   authDomain: 'apiweb2024g2d-nube.firebaseapp.com',
@@ -178,3 +178,27 @@ export const eliminarDocumento = (coleccion, idDocumento) => {
 export const doc = firestoreDoc
 export const getDoc = firestoreGetDoc
 export const Db = getFirestore(app)
+
+// agregar datos con ID
+
+export const setregister = (codigo, name, country) =>
+  setDoc(doc(db, 'cities', codigo), {
+    codigo,
+    name,
+    country,
+  })
+
+// leer registro especifico
+
+export const Getregister = (codigo) => (getDoc = doc(db, 'cities', codigo))
+
+// actualizar documento
+export const actualizarDocumento = async (docRef, data) => {
+  try {
+    await updateDoc(docRef, data)
+    console.log('Documento actualizado exitosamente')
+  } catch (error) {
+    console.error('Error al actualizar el documento:', error)
+    throw error
+  }
+}

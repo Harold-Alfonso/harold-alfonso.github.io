@@ -5,6 +5,7 @@ import {
   doc,
   getDoc,
   Db,
+  actualizarDocumento,
 } from '../controllers/firebase.js'
 
 const ver = document.getElementById('vdata')
@@ -31,12 +32,15 @@ async function cargar() {
                   data-user-email="${userData.email}">
             Eliminar Usuario
           </button>
+          <button type="button" class="btn btn-secondary btnUpdateUser" 
+                  data-user-id="${doc.id}">
+            Actualizar Usuario
+          </button>
         </td>
       </tr>
     `
   })
 
-  // Agregar event listener a todos los botones de eliminar usuario
   document.querySelectorAll('.btnDeleteUser').forEach((button) => {
     button.addEventListener('click', async () => {
       const userEmail = button.getAttribute('data-user-email')
@@ -63,7 +67,57 @@ async function cargar() {
       }
     })
   })
+
+  document.querySelectorAll('.btnUpdateUser').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const userId = button.getAttribute('data-user-id')
+      console.log('Botón de actualización clickeado. ID del usuario:', userId)
+      const userDocRef = doc(Db, 'usuario', userId)
+      const userDocSnapshot = await getDoc(userDocRef)
+      const userData = userDocSnapshot.data()
+
+      document.getElementById('updateId').value = userId
+      document.getElementById('updateNombre').value = userData.nombre
+      document.getElementById('updateDireccion').value = userData.direccion
+      document.getElementById('updateRH').value = userData.RH
+      document.getElementById('updateEmail').value = userData.email
+      document.getElementById('updateTelefono').value = userData.telefono
+
+      $('#updateModal').modal('show')
+    })
+  })
 }
+
+document
+  .getElementById('updateUserForm')
+  .addEventListener('submit', async (event) => {
+    event.preventDefault()
+
+    const userId = document.getElementById('updateId').value
+    const nombre = document.getElementById('updateNombre').value
+    const direccion = document.getElementById('updateDireccion').value
+    const RH = document.getElementById('updateRH').value
+    const email = document.getElementById('updateEmail').value
+    const telefono = document.getElementById('updateTelefono').value
+
+    const userDocRef = doc(Db, 'usuario', userId)
+
+    try {
+      await actualizarDocumento(userDocRef, {
+        nombre,
+        direccion,
+        RH,
+        email,
+        telefono,
+      })
+      alert('Usuario actualizado exitosamente')
+      $('#updateModal').modal('hide')
+      cargar()
+    } catch (error) {
+      alert('Error al actualizar usuario')
+      console.error('Error al actualizar usuario:', error)
+    }
+  })
 
 window.addEventListener('DOMContentLoaded', async () => {
   cargar()
